@@ -66,18 +66,18 @@ public class TicTacToe {
         if (isBoardFull())
             return 0;
 
-        int bestScore = (player == 'O') ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        int optimal = (player == 'O') ? Integer.MIN_VALUE : Integer.MAX_VALUE;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == '.') {
                     board[i][j] = player;
                     int score = minimax(board, (player == 'X') ? 'O' : 'X');
                     board[i][j] = '.';
-                    bestScore = (player == 'O') ? Math.max(score, bestScore) : Math.min(score, bestScore);
+                    optimal = (player == 'O') ? Math.max(score, optimal) : Math.min(score, optimal);
                 }
             }
         }
-        return bestScore;
+        return optimal;
     }
 
     private List<int[]> getAvailableMoves(char[][] board) {
