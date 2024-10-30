@@ -8,7 +8,7 @@ public class ExtraUtilities {
             "Mist + Cloudy, Mist + Broken clouds, Mist + Few clouds, Mist",
             "Light Snow, Light Rain + Thunderstorm + Scattered clouds, Light Rain + Scattered clouds",
             "Heavy Rain + Ice Pallets + Thunderstorm + Mist, Snow + Fog" };
-    public static final String[] HOLIDAY = { "a holiday.", "not a holiday." };
+    public static final String[] HOLIDAY = { "a holiday", "not a holiday" };
 
     public static String toPosition(int position) {
         switch (position) {
@@ -41,7 +41,7 @@ public class ExtraUtilities {
             case 2:
                 return HOLIDAY[holiday - 1];
             default:
-                return "not a holiday.";
+                return "not a holiday";
         }
     }
 }

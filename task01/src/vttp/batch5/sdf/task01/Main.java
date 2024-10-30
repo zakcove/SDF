@@ -48,7 +48,7 @@ public class Main {
             String weekday = Utilities.toWeekday(Integer.parseInt(col[3]));
             String weather = ExtraUtilities.toWeather(Integer.parseInt(col[4]));
             
-            System.out.println("The " + ExtraUtilities.toPosition(i+1) + " recorded number of cyclists was in " + season + ", on a " + weekday + " in the month of " + month + ".\nThere were a total of " + total + " cyclist. The weather was " + weather + ". " + weekday + " was " + holiday + "\n");
+            System.out.println("The " + ExtraUtilities.toPosition(i+1) + " recorded number of cyclists was in " + season + ", on a " + weekday + " in the month of " + month + ".\nThere were a total of " + total + " cyclist. The weather was " + weather + ". " + weekday + " was " + holiday + ".\n");
 
                     
         }
