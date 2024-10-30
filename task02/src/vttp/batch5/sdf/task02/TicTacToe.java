@@ -60,20 +60,20 @@ public class TicTacToe {
 
     public int minimax(char[][] board, char player) {
         if (checkWinner('X'))
-            return -10;
-        if (checkWinner('O'))
             return 10;
+        if (checkWinner('O'))
+            return -10;
         if (isBoardFull())
             return 0;
 
-        int optimal = (player == 'O') ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        int optimal = (player == 'X') ? Integer.MIN_VALUE : Integer.MAX_VALUE;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == '.') {
                     board[i][j] = player;
                     int score = minimax(board, (player == 'X') ? 'O' : 'X');
                     board[i][j] = '.';
-                    optimal = (player == 'O') ? Math.max(score, optimal) : Math.min(score, optimal);
+                    optimal = (player == 'X') ? Math.max(score, optimal) : Math.min(score, optimal);
                 }
             }
         }
@@ -98,9 +98,9 @@ public class TicTacToe {
         printBoard();
         System.out.println("-----------------------------------");
         for (int[] move : availableMoves) {
-            board[move[0]][move[1]] = '.';
-            int utility = minimax(board, 'O');
             board[move[0]][move[1]] = 'X';
+            int utility = minimax(board, 'O');
+            board[move[0]][move[1]] = '.';
             int displayUtility = (utility > 0) ? 1 : (utility < 0) ? -1 : 0;
             System.out.println("x=" + move[1] + ", " + "y=" + move[0] + ", " + "utility=" + displayUtility);
         }
