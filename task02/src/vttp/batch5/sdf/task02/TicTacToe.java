@@ -13,8 +13,8 @@ public class TicTacToe {
         board = new char[3][3];
     }
 
-    public void readFile(String file) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(file));
+    public void readFile(String f) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(f));
         for (int i = 0; i < 3; i++) {
             String line = reader.readLine();
             for (int j = 0; j < 3; j++) {
@@ -47,29 +47,24 @@ public class TicTacToe {
     public boolean checkWinner(char player) {
         for (int i = 0; i < 3; i++) {
             if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) ||
-                (board[0][i] == player && board[1][i] == player && board[2][i] == player)) {
+                    (board[0][i] == player && board[1][i] == player && board[2][i] == player)) {
                 return true;
             }
         }
         if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
-            (board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean nextMove(int x, int y, char player) {
-        if (board[y][x] == '.') { 
-            board[y][x] = player;
+                (board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
             return true;
         }
         return false;
     }
 
     public int minimax(char[][] board, char player) {
-        if (checkWinner('X')) return -10;
-        if (checkWinner('O')) return 10;
-        if (isBoardFull()) return 0;
+        if (checkWinner('X'))
+            return -10;
+        if (checkWinner('O'))
+            return 10;
+        if (isBoardFull())
+            return 0;
 
         int bestScore = (player == 'O') ? Integer.MIN_VALUE : Integer.MAX_VALUE;
         for (int i = 0; i < 3; i++) {
@@ -90,7 +85,7 @@ public class TicTacToe {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == '.') {
-                    availableMoves.add(new int[]{i, j});
+                    availableMoves.add(new int[] { i, j });
                 }
             }
         }
