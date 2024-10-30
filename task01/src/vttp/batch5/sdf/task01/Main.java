@@ -31,8 +31,8 @@ public class Main {
         List<Map.Entry<String[], Integer>> cyclistTotal = rows.stream().map(row -> {
             int casual = Integer.parseInt(row[8].trim());
             int registered = Integer.parseInt(row[9].trim());
-            int totalCyclists = casual + registered;
-            return new AbstractMap.SimpleEntry<>(row, totalCyclists);
+            int total = casual + registered;
+            return new AbstractMap.SimpleEntry<>(row, total);
         }).collect(Collectors.toList());
 
         cyclistTotal.sort((entry1, entry2) -> entry2.getValue() - entry1.getValue());
@@ -40,7 +40,7 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             Map.Entry<String[], Integer> entry = cyclistTotal.get(i);
             String[] col = entry.getKey();
-            int totalCyclists = entry.getValue();
+            int total = entry.getValue();
 
             String season = Utilities.toSeason(Integer.parseInt(col[0]));;
             String month = Utilities.toMonth(Integer.parseInt(col[1]));
@@ -48,7 +48,7 @@ public class Main {
             String weekday = Utilities.toWeekday(Integer.parseInt(col[3]));
             String weather = ExtraUtilities.toWeather(Integer.parseInt(col[4]));
             
-            System.out.println("The " + ExtraUtilities.toPosition(i+1) + " recorded number of cyclists was in " + season + ", on a " + weekday + " in the month of " + month + ". There were a total of " + totalCyclists + " cyclist. The weather was " + weather + ". " + weekday + " was " + holiday + "\n");
+            System.out.println("The " + ExtraUtilities.toPosition(i+1) + " recorded number of cyclists was in " + season + ", on a " + weekday + " in the month of " + month + ".\nThere were a total of " + total + " cyclist. The weather was " + weather + ". " + weekday + " was " + holiday + "\n");
 
                     
         }
