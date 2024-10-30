@@ -24,7 +24,7 @@ public class Main {
 
         String line;
         while ((line = br.readLine()) != null) {
-            String[] values = line.split(","); // Split each line by comma
+            String[] values = line.split(",");
             rows.add(values);
         }
 
