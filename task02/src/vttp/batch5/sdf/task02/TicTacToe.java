@@ -60,9 +60,9 @@ public class TicTacToe {
 
     public int minimax(char[][] board, char player) {
         if (checkWinner('X'))
-            return 10;
+            return 1;
         if (checkWinner('O'))
-            return -10;
+            return -1;
         if (isBoardFull())
             return 0;
 
