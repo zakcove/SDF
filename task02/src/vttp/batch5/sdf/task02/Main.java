@@ -8,9 +8,9 @@ public class Main {
 			System.exit(1);
 		}
 
-		TicTacToe gol = new TicTacToe(args[0]);
-		gol.readFile();
-		gol.printBoard();
+		TicTacToe TTT = new TicTacToe(args[0]);
+		TTT.readFile();
+		TTT.printBoard();
 
 	}
 }
